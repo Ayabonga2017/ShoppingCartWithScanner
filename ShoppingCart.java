@@ -1,36 +1,43 @@
 package variables;
 import java.util.Scanner;
 public class ShoppingCart{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         
         while(true){
-        Scanner customer = new Scanner(System.in);
-        System.out.println("enter your name ");
+            
+            Scanner input = new Scanner(System.in);
+            System.out.println("Would you like to continue [y/n] ? \n");
+            String decide = input.next();
+
+        if (decide.equalsIgnoreCase("y")) {
+            Scanner customer = new Scanner(System.in);
+            System.out.println("\nenter your name:\n");
         String custName = customer.next();
     
         StringBuilder message = new StringBuilder();
-        message.append(custName);
-        message.append(" wants to buy ");
+            message.append(custName);
+            message.append(" wants to buy ");
         
         Scanner item = new Scanner(System.in);
 
         StringBuilder welcome = new StringBuilder(); 
-        welcome.append("Welcome ");
-        welcome.append(custName);
-        welcome.append("");
-        welcome.append("\nWhat would you like to buy ? ");
-        System.out.println(welcome);
+            welcome.append("Welcome ");
+            welcome.append(custName);
+            welcome.append(".\n");
+            welcome.append("\nWhat would you like to buy ?");
+            welcome.append("\nType [menu] for instructions on how to choose an item:\n");
+            System.out.println(welcome +"\n");
 
         String itemName = item.next();
 
         if(itemName.equalsIgnoreCase("j")){
-        message.append("a pair of Jeans.");
+            message.append("a pair of Jeans.");
         }else if (itemName.equalsIgnoreCase("s")){
-        message.append("a pair of Shoes.");
+            message.append("a pair of Shoes.");
         }else if (itemName.equalsIgnoreCase("t")){
-        message.append("a T-Shirt.");
-        }else if (itemName.equalsIgnoreCase("sw")){
-            message.append("a Sweater.");
+            message.append("a T-Shirt.");
+        }else if (itemName.equalsIgnoreCase("so")){
+            message.append("a Socks.");
         }else if (itemName.equalsIgnoreCase("sw")){
             message.append("a Sweater.");
         }else if (itemName.equalsIgnoreCase("sh")){
@@ -41,28 +48,31 @@ public class ShoppingCart{
 
             StringBuilder menu = new StringBuilder();
             menu.append("\n.............menu.............\n");
+            menu.append("c - Coat\n");
             menu.append("j - Jeans\n");
             menu.append("t - T- Shirt\n");
             menu.append("s - Shoes\n");
             menu.append("sw - Sweater\n");
             menu.append("sh - Shorts\n");
-            menu.append("c - Coat\n");
+            menu.append("so - Socks\n");
+
             System.out.println(menu);
-            }
-        else{
+         }else{
+
         StringBuilder error = new StringBuilder();
-        error.append("Wrong input data !!");
-        error.append("\ntype [j] for Jean.");
-        error.append("\ntype [s] for a pair of Shoes.");
-        error.append("\ntype [t] for T-Shirt.");
-
-        System.out.println(error);
+            error.append("Wrong input data !!\n");
+            error.append("\ntype [menu] for instructions.\n");
+            System.out.println(error);
         }
-        System.out.println(message);
-        customer.close();
-        item.close();
-        break;
+            System.out.println(message);
+            item.close();
+            customer.close();
+            break;
+        }else if(decide.equalsIgnoreCase("n")){
+            System.out.println("\nGood-bye.......\n");
+            break;
         }
-
+        input.close();
+        }
     }
 }
