@@ -29,7 +29,26 @@ public class ShoppingCart{
         message.append("a pair of Shoes.");
         }else if (itemName.equalsIgnoreCase("t")){
         message.append("a T-Shirt.");
-        }
+        }else if (itemName.equalsIgnoreCase("sw")){
+            message.append("a Sweater.");
+        }else if (itemName.equalsIgnoreCase("sw")){
+            message.append("a Sweater.");
+        }else if (itemName.equalsIgnoreCase("sh")){
+            message.append("a pair of Shorts.");
+        }else if (itemName.equalsIgnoreCase("c")){
+            message.append("a Coat.");
+        }else if (itemName.equalsIgnoreCase("menu")){
+
+            StringBuilder menu = new StringBuilder();
+            menu.append("\n.............menu.............\n");
+            menu.append("j - Jeans\n");
+            menu.append("t - T- Shirt\n");
+            menu.append("s - Shoes\n");
+            menu.append("sw - Sweater\n");
+            menu.append("sh - Shorts\n");
+            menu.append("c - Coat\n");
+            System.out.println(menu);
+            }
         else{
         StringBuilder error = new StringBuilder();
         error.append("Wrong input data !!");
